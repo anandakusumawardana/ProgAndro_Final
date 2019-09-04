@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
+    private Button about;
     private EditText email,pwd;
 
     @Override
@@ -24,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String emailUser = String.valueOf(email.getText());
                 String pwdUser   = String.valueOf(pwd.getText());
-                setContentView(R.layout.about);
+                setContentView(R.layout.homepage);
             }
         });
+
+
     }
     @Override
     protected void onStart(){
