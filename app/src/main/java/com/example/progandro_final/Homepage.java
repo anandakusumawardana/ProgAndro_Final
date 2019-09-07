@@ -13,6 +13,5 @@ public class Homepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
-        about = findViewById(R.id.about);
     }
 }

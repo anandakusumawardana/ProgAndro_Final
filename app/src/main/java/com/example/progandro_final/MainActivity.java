@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
     private Button about;
     private EditText email,pwd;
+    private TextView daftar;
     Valid validation = new Valid();
 
     @Override
@@ -20,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         email = findViewById(R.id.email);
         pwd   = findViewById(R.id.password);
+        daftar = findViewById(R.id.signUp);
         login = findViewById(R.id.loginButton);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -28,12 +31,23 @@ public class MainActivity extends AppCompatActivity {
                 String pwdUser   = String.valueOf(pwd.getText());
                 if (validation.isValid(emailUser,pwdUser)) {
                     //setContentView(R.layout.homepage);
+                    //login.setEnabled();
                     Intent intent = new Intent(MainActivity.this,Homepage.class);
                     finish();
                     startActivity(intent);
                 }
             }
         });
+//        daftar.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
+
+    }
+    void checkIfEmpty(){
+
     }
 //    @Override
 //    protected void onStart() {
