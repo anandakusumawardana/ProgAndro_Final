@@ -7,11 +7,21 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Homepage extends AppCompatActivity {
-    private Button about;
+    private Button abt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
+        abt = findViewById(R.id.about);
+        abt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent tentang = new Intent(Homepage.this,About.class);
+                //finish();
+                startActivity(tentang);
+                //setContentView(R.layout.about);
+            }
+        });
     }
 }

@@ -33,21 +33,18 @@ public class MainActivity extends AppCompatActivity {
                     //setContentView(R.layout.homepage);
                     //login.setEnabled();
                     Intent intent = new Intent(MainActivity.this,Homepage.class);
-                    finish();
+                    //finish();
                     startActivity(intent);
                 }
             }
         });
-//        daftar.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
-
-    }
-    void checkIfEmpty(){
-
+        daftar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent signUp = new Intent(MainActivity.this,SignUp.class);
+                startActivity(signUp);
+            }
+        });
     }
 //    @Override
 //    protected void onStart() {
