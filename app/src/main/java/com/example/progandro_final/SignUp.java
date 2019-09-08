@@ -23,7 +23,7 @@ public class SignUp extends AppCompatActivity {
         pwd2 = findViewById(R.id.pwd2);
         daftar = findViewById(R.id.daftarBaru);
         daftar.setOnClickListener(new View.OnClickListener() {
-            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            //@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
                 if (checking(String.valueOf(pwd.getText()),String.valueOf(pwd2.getText()),String.valueOf(emailUser.getText()))){
@@ -34,7 +34,7 @@ public class SignUp extends AppCompatActivity {
             }
         });
     }
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    //@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private boolean checking(String pass1, String pass2, String email){
         if (pass1.isEmpty() == false && email.isEmpty() == false && pass2.equals(pass1)){
             Toast.makeText(this,"Field Must Not Empty", Toast.LENGTH_SHORT).show();
