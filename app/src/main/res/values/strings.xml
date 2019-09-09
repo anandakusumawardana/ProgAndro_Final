@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProgAndro_Final</string>
+    <string name="yes_message">ARTICLE: Like</string>
+    <string name="no_message">ARTICLE: Thanks</string>
 </resources>
