@@ -8,11 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
-    private Button about;
     private EditText email,pwd;
     private TextView daftar;
     Valid validation = new Valid();

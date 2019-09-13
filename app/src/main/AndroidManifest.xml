@@ -8,10 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
-            android:name=".SimpleFragment"
-            android:label="@string/title_activity_simple_fragment">
+            android:name=".SimpleFragment">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -21,14 +20,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Homepage"
-            android:label="@string/app_name"></activity>
+            android:name=".Homepage"></activity>
         <activity
-            android:name=".About"
-            android:label="@string/app_name"></activity>
+            android:name=".About"></activity>
         <activity
-            android:name=".SignUp"
-            android:label="@string/app_name"></activity>
+            android:name=".SignUp"></activity>
     </application>
 
 </manifest>
