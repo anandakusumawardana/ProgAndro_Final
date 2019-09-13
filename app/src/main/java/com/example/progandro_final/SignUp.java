@@ -1,14 +1,11 @@
 package com.example.progandro_final;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUp extends AppCompatActivity {
@@ -27,16 +24,15 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checking(String.valueOf(pwd.getText()),String.valueOf(pwd2.getText()),String.valueOf(emailUser.getText()))){
-                    Intent homepage = new Intent(SignUp.this,Homepage.class);
+                    Intent homepage = new Intent(SignUp.this,SimpleFragment.class);
                     finish();
                     startActivity(homepage);
                 }
             }
         });
     }
-    //@RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private boolean checking(String pass1, String pass2, String email){
-        if (pass1.isEmpty() == false && email.isEmpty() == false && pass2.equals(pass1)){
+        if (!pass1.isEmpty() && !email.isEmpty() && !pass1.equals(pass2)){
             Toast.makeText(this,"Field Must Not Empty", Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -44,7 +40,7 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(this,"Must Fill The Form", Toast.LENGTH_SHORT).show();
             return false;
         }
-        else if (pass1.equals(pass2) == false){
+        else if (!pass1.equals(pass2)){
             Toast.makeText(this,"Your Password Does Not Match", Toast.LENGTH_SHORT).show();
             return false;
         }

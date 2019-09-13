@@ -17,10 +17,8 @@ public class Homepage extends AppCompatActivity {
         abt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent tentang = new Intent(Homepage.this,About.class);
-                //finish();
-                startActivity(tentang);
-                //setContentView(R.layout.about);
+                Intent fragment = new Intent(Homepage.this,SimpleFragment.class);
+                startActivity(fragment);
             }
         });
     }

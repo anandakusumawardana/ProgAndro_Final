@@ -31,10 +31,7 @@ public class MainActivity extends AppCompatActivity {
                 String emailUser = String.valueOf(email.getText());
                 String pwdUser   = String.valueOf(pwd.getText());
                 if (validation.isValid(emailUser,pwdUser)) {
-                    //setContentView(R.layout.homepage);
-                    //login.setEnabled();
-                    Intent intent = new Intent(MainActivity.this,Homepage.class);
-                    //finish();
+                    Intent intent = new Intent(MainActivity.this,SimpleFragment.class);
                     startActivity(intent);
                 }
             }
@@ -47,8 +44,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//    }
 }
