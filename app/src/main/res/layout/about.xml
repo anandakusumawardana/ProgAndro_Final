@@ -13,6 +13,6 @@
         android:layout_width="398dp"
         android:layout_height="173dp"
         android:gravity="center"
-        android:text="Ananda Kusumwaardana 71170153" />
+        android:text="@string/ananda_kusumawardana_71170153" />
 
 </RelativeLayout>
