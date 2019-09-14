@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 String pwdUser   = String.valueOf(pwd.getText());
                 if (validation.isValid(emailUser,pwdUser)) {
                     Intent intent = new Intent(MainActivity.this,SimpleFragment.class);
+                    finish();
                     startActivity(intent);
                 }
             }
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent signUp = new Intent(MainActivity.this,SignUp.class);
+                finish();
                 startActivity(signUp);
             }
         });
