@@ -14,5 +14,19 @@
             android:layout_gravity="bottom|end"
             android:text="@string/about" />
 
+        <Button
+            android:id="@+id/wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/check_if_the_wifi_is_connected" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="" />
+
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
