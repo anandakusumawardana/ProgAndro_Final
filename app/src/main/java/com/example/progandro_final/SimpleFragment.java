@@ -1,6 +1,10 @@
 package com.example.progandro_final;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -14,6 +18,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.progandro_final.ui.main.SectionsPagerAdapter;
 
@@ -36,6 +41,25 @@ public class SimpleFragment extends AppCompatActivity {
                 startActivity(about);
             }
         });
-
+    }
+    private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE,WifiManager.WIFI_STATE_UNKNOWN);
+            if (wifiState == WifiManager.WIFI_STATE_ENABLED){
+                Toast.makeText(getApplicationContext(),"WiFi is On",Toast.LENGTH_SHORT).show();
+            }
+            else if (wifiState == WifiManager.WIFI_STATE_DISABLED){
+                Toast.makeText(getApplicationContext(),"WiFi is Off",Toast.LENGTH_SHORT).show();
+            }
+        }
+    };
+    protected void onStart(){
+        super.onStart();
+        registerReceiver(broadcastReceiver, new IntentFilter(WifiManager.WIFI_STATE_CHANGED_ACTION));
+    }
+    protected void onStop(){
+        super.onStop();
+        unregisterReceiver(broadcastReceiver);
     }
 }

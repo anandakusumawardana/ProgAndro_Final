@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private Button login;
     private EditText email,pwd;
     private TextView daftar;
-    public  static String MY_FLAG = "MY_FLAG";
     Valid validation = new Valid();
 
     @Override
