@@ -15,12 +15,15 @@ import androidx.core.app.NotificationManagerCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.example.progandro_final.ui.main.SectionsPagerAdapter;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static com.example.progandro_final.Valid.Notification.offWiFi;
 import static com.example.progandro_final.Valid.Notification.onWiFi;
@@ -28,6 +31,7 @@ import static com.example.progandro_final.Valid.Notification.onWiFi;
 public class SimpleFragment extends AppCompatActivity {
     private NotificationManagerCompat notificationManagerCompat;
     private View view;
+    private int count = 100;
     private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,13 +102,13 @@ public class SimpleFragment extends AppCompatActivity {
 
         notificationManagerCompat.notify(2,notification);
     }
-
+    //job scheduling
     public void scheduleJob(View view){
         ComponentName componentName = new ComponentName(this,MyJobService.class);
         JobInfo jobInfo = new JobInfo.Builder(123,componentName)
 //                .setRequiresCharging(true)
 //                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
-                .setPersisted(true)
+//                .setPersisted(true)
                 .setPeriodic(15 * 60 * 1000) //set every 15 minutes
                 .build();
 
