@@ -1,6 +1,9 @@
 package com.example.progandro_final;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -11,19 +14,21 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.progandro_final.ui.main.SectionsPagerAdapter;
 
-import static com.example.progandro_final.Notification.offWiFi;
-import static com.example.progandro_final.Notification.onWiFi;
+import static com.example.progandro_final.Valid.Notification.offWiFi;
+import static com.example.progandro_final.Valid.Notification.onWiFi;
 
 public class SimpleFragment extends AppCompatActivity {
-    private Button btn;
     private NotificationManagerCompat notificationManagerCompat;
     private View view;
+    private static final String TAG = "MainActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +39,7 @@ public class SimpleFragment extends AppCompatActivity {
         viewPager.setAdapter(sectionsPagerAdapter);
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
-        btn = findViewById(R.id.about);
+        Button btn = findViewById(R.id.about);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,6 +48,7 @@ public class SimpleFragment extends AppCompatActivity {
             }
         });
     }
+    //broadcast receiver for wifi is on or off
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -91,5 +97,29 @@ public class SimpleFragment extends AppCompatActivity {
                 .build();
 
         notificationManagerCompat.notify(2,notification);
+    }
+
+    public void scheduleJob(View view){
+        ComponentName componentName = new ComponentName(this,MyJobService.class);
+        JobInfo jobInfo = new JobInfo.Builder(123,componentName)
+//                .setRequiresCharging(true)
+//                .setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED)
+                .setPersisted(true)
+                .setPeriodic(15 * 60 * 1000) //set every 15 minutes
+                .build();
+
+        JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        int resultCode = jobScheduler.schedule(jobInfo);
+        if (resultCode == JobScheduler.RESULT_SUCCESS){
+            Log.d(TAG,"Job scheduled");
+        }
+        else {
+            Log.d(TAG,"Job scheduling failed");
+        }
+    }
+    public void cancelJob(View view){
+        JobScheduler scheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        scheduler.cancel(123);
+        Log.d(TAG, "Job cancelled");
     }
 }
