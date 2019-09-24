@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.Toast;
 import com.example.progandro_final.ui.main.SectionsPagerAdapter;
 
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -51,6 +52,11 @@ public class SimpleFragment extends AppCompatActivity {
                 startActivity(about);
             }
         });
+        ArrayList<RecyclerViewItem> recyclerViewItems = new ArrayList<>();
+        recyclerViewItems.add(new RecyclerViewItem(R.drawable.ic_movie,"The Avengers","2012"));
+        recyclerViewItems.add(new RecyclerViewItem(R.drawable.ic_movie,"The Avengers : Age of Ultron","2015"));
+        recyclerViewItems.add(new RecyclerViewItem(R.drawable.ic_movie,"The Avengers : Infinity War","2018"));
+        recyclerViewItems.add(new RecyclerViewItem(R.drawable.ic_movie,"The Avengers : Endgame","2019"));
     }
     //broadcast receiver for wifi is on or off
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -102,6 +108,7 @@ public class SimpleFragment extends AppCompatActivity {
 
         notificationManagerCompat.notify(2,notification);
     }
+
     //job scheduling
     public void scheduleJob(View view){
         ComponentName componentName = new ComponentName(this,MyJobService.class);
@@ -126,4 +133,7 @@ public class SimpleFragment extends AppCompatActivity {
         scheduler.cancel(123);
         Log.d(TAG, "Job cancelled");
     }
+
+    //recycler view
+
 }

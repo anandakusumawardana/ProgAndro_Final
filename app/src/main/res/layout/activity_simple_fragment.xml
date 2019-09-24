@@ -9,8 +9,17 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="556dp"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        android:layout_height="627dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray"
+            android:padding="4dp"
+            android:scrollbars="vertical" />
+    </androidx.viewpager.widget.ViewPager>
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -22,29 +31,30 @@
             android:layout_height="wrap_content"
             app:tabIndicatorColor="@color/colorBlue"
             android:background="?attr/colorPrimary" />
+
     </com.google.android.material.appbar.AppBarLayout>
 
-    <Button
-        android:id="@+id/startjob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="scheduleJob"
-        android:layout_gravity="left|center"
-        android:text="Schedule Job" />
+    <!--    <Button-->
+<!--        android:id="@+id/stopjob"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:onClick="cancelJob"-->
+<!--        android:layout_gravity="end|center"-->
+<!--        android:text="Cancel Job" />-->
 
-    <Button
-        android:id="@+id/stopjob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="cancelJob"
-        android:layout_gravity="right|center"
-        android:text="Cancel Job" />
+<!--    <Button-->
+<!--        android:id="@+id/startjob"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="left|center|bottom"-->
+<!--        android:onClick="scheduleJob"-->
+<!--        android:text="Schedule Job" />-->
 
     <Button
         android:id="@+id/about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="bottom|end"
         android:text="@string/about" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
