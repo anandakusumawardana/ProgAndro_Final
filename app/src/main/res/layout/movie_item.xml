@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="4dp">
 
@@ -11,31 +11,32 @@
         android:layout_margin="4dp">
 
         <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="8dp"
             android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:padding="2dp" />
+            android:contentDescription="@string/todo" />
 
         <TextView
-            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/line_1"
-            android:textColor="@android:color/black"
+            android:text="@string/title"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:textColor="@android:color/black"
             android:layout_alignParentTop="true"
-            android:layout_toEndOf="@id/imageView" />
+            android:layout_toEndOf="@id/imageView"
+            android:id="@+id/textViewTitle"/>
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewDesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Line 2"
+            android:text="@string/description"
             android:textSize="15sp"
-            android:layout_below="@id/textView"
+            android:layout_below="@+id/textViewTitle"
             android:layout_toEndOf="@id/imageView"
             android:layout_marginStart="8dp"/>
-
     </RelativeLayout>
+
 </androidx.cardview.widget.CardView>

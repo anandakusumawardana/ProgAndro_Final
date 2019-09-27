@@ -2,24 +2,24 @@ package com.example.progandro_final;
 
 public class RecyclerViewItem {
     private int mImageResource;
-    private String mText1;
-    private String mText2;
+    private String mTitle;
+    private String mDesc;
 
-    public RecyclerViewItem(int imageResource, String text1, String text2){
+    public RecyclerViewItem(int imageResource, String judul, String description){
         mImageResource = imageResource;
-        text1 = mText1;
-        text2 = mText2;
+        mTitle = judul;
+        mDesc = description;
     }
 
     public int getImageResource(){
         return mImageResource;
     }
 
-    public String getText1(){
-        return mText1;
+    public String getJudul(){
+        return mTitle;
     }
 
-    public String getText2(){
-        return mText2;
+    public String getDescription(){
+        return mDesc;
     }
 }

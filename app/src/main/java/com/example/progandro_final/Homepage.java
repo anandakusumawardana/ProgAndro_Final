@@ -20,13 +20,13 @@ public class Homepage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.homepage);
-        abt = findViewById(R.id.about);
-        abt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent fragment = new Intent(Homepage.this,SimpleFragment.class);
-                startActivity(fragment);
-            }
-        });
+//        abt = findViewById(R.id.about);
+//        abt.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent fragment = new Intent(Homepage.this,SimpleFragment.class);
+//                startActivity(fragment);
+//            }
+//        });
     }
 }

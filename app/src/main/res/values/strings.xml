@@ -6,4 +6,12 @@
     <string name="tab_text_2">Tab Sebelah</string>
     <string name="ananda_kusumawardana_71170153">Ananda Kusumawardana 71170153</string>
     <string name="line_1">Line 1</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="sign_up_now">Sign Up Now</string>
+    <string name="not_a_member">Not A Member?</string>
+    <string name="title">movie_title</string>
+    <string name="description">Description</string>
+    <string name="todo">TODO</string>
 </resources>
