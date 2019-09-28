@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
     private Button login;
     private EditText email,pwd;
     private TextView daftar;
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 String emailUser = String.valueOf(email.getText());
                 String pwdUser   = String.valueOf(pwd.getText());
                 if (validation.isValid(emailUser,pwdUser)) {
-                    Intent intent = new Intent(MainActivity.this,SimpleFragment.class);
+                    Intent intent = new Intent(Login.this,HomePageActivity.class);
                     finish();
                     startActivity(intent);
                 }
@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         daftar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent signUp = new Intent(MainActivity.this,SignUp.class);
+                Intent signUp = new Intent(Login.this,SignUp.class);
                 finish();
                 startActivity(signUp);
             }

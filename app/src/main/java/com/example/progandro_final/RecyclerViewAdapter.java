@@ -1,5 +1,6 @@
 package com.example.progandro_final;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,46 +10,47 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.List;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private ArrayList<RecyclerViewItem> recyclerViewItems;
-    public static class ViewHolder extends RecyclerView.ViewHolder{
-        public ImageView mImageView;
-        public TextView mTextView1,mTextView2;
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder> {
+    Context mContext;
+    List<RecyclerViewItem> recyclerViewItemList;
 
-        public ViewHolder(@NonNull View itemView) {
-            super(itemView);
-            mImageView = itemView.findViewById(R.id.imageView);
-            mTextView1 = itemView.findViewById(R.id.textViewTitle);
-            mTextView2 = itemView.findViewById(R.id.textViewDesc);
-        }
-    }
-
-    public RecyclerViewAdapter(ArrayList<RecyclerViewItem> recyclerViews){
-        recyclerViewItems = recyclerViews;
-
+    public RecyclerViewAdapter(Context mContext, List<RecyclerViewItem> recyclerViewItemList){
+        this.mContext = mContext;
+        this.recyclerViewItemList = recyclerViewItemList;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_item,parent,false);
-        ViewHolder viewHolder = new ViewHolder(view);
-        return viewHolder;
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(mContext).inflate(R.layout.movie_item,parent,false);
+        MyViewHolder vHolder = new MyViewHolder(v);
+        return vHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        RecyclerViewItem currentItem = recyclerViewItems.get(position);
-        holder.mImageView.setImageResource(currentItem.getImageResource());
-        holder.mTextView1.setText(currentItem.getJudul());
-        holder.mTextView2.setText(currentItem.getDescription());
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.judul.setText(recyclerViewItemList.get(position).getJudul());
+        holder.descMovie.setText(recyclerViewItemList.get(position).getDescription());
+        holder.img.setImageResource(recyclerViewItemList.get(position).getImageResource());
     }
 
     @Override
     public int getItemCount() {
-        return recyclerViewItems.size();
+        return recyclerViewItemList.size();
     }
 
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
+        private TextView judul;
+        private TextView descMovie;
+        private ImageView img;
+        public MyViewHolder(View itemView){
+            super(itemView);
+
+            judul = (TextView) itemView.findViewById(R.id.textViewTitle);
+            descMovie = (TextView) itemView.findViewById(R.id.textViewDesc);
+            img = (ImageView) itemView.findViewById(R.id.imageView);
+        }
+    }
 }

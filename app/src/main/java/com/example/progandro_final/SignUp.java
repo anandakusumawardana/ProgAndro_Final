@@ -24,7 +24,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checking(String.valueOf(pwd.getText()),String.valueOf(pwd2.getText()),String.valueOf(emailUser.getText()))){
-                    Intent homepage = new Intent(SignUp.this,SimpleFragment.class);
+                    Intent homepage = new Intent(SignUp.this,Homepage.class);
                     finish();
                     startActivity(homepage);
                 }
