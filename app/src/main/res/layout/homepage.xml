@@ -40,7 +40,7 @@
             android:gravity="center"
             android:minHeight="?actionBarSize"
             android:padding="16dp"
-            android:background="@color/colorBlue"
+            android:background="@color/colorSeaGreen"
             android:text="@string/android"/>
 
     <androidx.viewpager.widget.ViewPager
@@ -51,7 +51,7 @@
         app:layout_editor_absoluteY="-36dp">
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab"
-            android:background="@color/colorBlue"
+            android:background="@color/colorSeaGreen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </androidx.viewpager.widget.ViewPager>
