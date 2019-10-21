@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class SignUp extends AppCompatActivity {
@@ -24,7 +25,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checking(String.valueOf(pwd.getText()),String.valueOf(pwd2.getText()),String.valueOf(emailUser.getText()))){
-                    Intent homepage = new Intent(SignUp.this,Homepage.class);
+                    Intent homepage = new Intent(SignUp.this,HomePageActivity.class);
                     finish();
                     startActivity(homepage);
                 }

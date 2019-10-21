@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
@@ -30,7 +31,6 @@ public class HomePageActivity extends AppCompatActivity {
     private WifiManager wifiManager;
     private NotificationManagerCompat notificationManagerCompat;
     private static final String TAG = "Activities";
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -47,9 +47,10 @@ public class HomePageActivity extends AppCompatActivity {
         notificationManagerCompat = NotificationManagerCompat.from(this);
     }
 
+    //Function for WiFi Broadcast Receiver
     private BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(Context context,  @NonNull Intent intent) {
             int wifiState = intent.getIntExtra(WifiManager.EXTRA_WIFI_STATE, WifiManager.WIFI_STATE_UNKNOWN);
             if (wifiState == WifiManager.WIFI_STATE_ENABLED){
                 wifiOn(view);
@@ -98,6 +99,7 @@ public class HomePageActivity extends AppCompatActivity {
                 .build();
 
         JobScheduler jobScheduler = (JobScheduler) getSystemService(JOB_SCHEDULER_SERVICE);
+        assert jobScheduler != null;
         int result = jobScheduler.schedule(jobInfo);
         if (result == JobScheduler.RESULT_SUCCESS){
             Log.d(TAG, "Job Scheduled");

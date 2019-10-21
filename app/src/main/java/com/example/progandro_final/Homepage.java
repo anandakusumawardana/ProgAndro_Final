@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,16 +15,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Homepage extends Fragment {
-    private RecyclerView recyclerView;
     private List<RecyclerViewItem> recyclerViewItems;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState){
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup viewGroup, Bundle savedInstanceState){
         super.onCreateView(inflater,viewGroup,savedInstanceState);
         View rootView = inflater.inflate(R.layout.home_fragment, viewGroup, false);
-        recyclerView= rootView.findViewById(R.id.recyclerView);
+        RecyclerView recyclerView = rootView.findViewById(R.id.recyclerView);
         RecyclerViewAdapter recycleViewAdapter = new RecyclerViewAdapter(getContext(),recyclerViewItems);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recycleViewAdapter);
+        recyclerView.setNestedScrollingEnabled(false);
         return rootView;
     }
 

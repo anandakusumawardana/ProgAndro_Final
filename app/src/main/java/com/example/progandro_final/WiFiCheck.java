@@ -32,4 +32,33 @@ public class WiFiCheck extends Application {
             manager.createNotificationChannel(off);
         }
     }
+    public static class Notification extends Application {
+        public static final String onWiFi = "WiFi is On";
+        public static final String offWiFi = "WiFi is Off";
+        @Override
+        public void onCreate(){
+            super.onCreate();
+            createNotification();
+        }
+
+        private void createNotification() {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                NotificationChannel on = new NotificationChannel(
+                        onWiFi,
+                        "WiFi is On",
+                        NotificationManager.IMPORTANCE_HIGH);
+                on.setDescription("WiFi is On");
+
+                NotificationChannel off = new NotificationChannel(
+                        offWiFi,
+                        "WiFi is Off",
+                        NotificationManager.IMPORTANCE_LOW);
+                off.setDescription("WiFi is Off");
+
+                NotificationManager manager = getSystemService(NotificationManager.class);
+                manager.createNotificationChannel(on);
+                manager.createNotificationChannel(off);
+            }
+        }
+    }
 }

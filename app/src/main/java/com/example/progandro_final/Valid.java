@@ -7,9 +7,9 @@ import android.os.Build;
 
 public class Valid {
     protected boolean isValid(String username, String pwd){
-        return username.equals("kimJisoo@gmail.com") && pwd.equals("blackpink") ||
-                username.equals("ananda@gmail.com") && pwd.equals("123");
+        return username.equals("ananda@gmail.com") && pwd.equals("123");
     }
+
 
     public static class Notification extends Application {
         public static final String onWiFi = "WiFi is On";
