@@ -35,9 +35,6 @@ public class Homepage extends Fragment {
 
         recyclerViewItems = new ArrayList<>();
 
-        recyclerViewItems.add(new RecyclerViewItem(R.drawable.interstellar,"Interstellar",
-                "In Earth's future, a global crop blight and second Dust Bowl are slowly rendering the planet uninhabitable."));
-
         recyclerViewItems.add(new RecyclerViewItem(R.drawable.adastra, "Ad Astra",
                 "Thirty years ago, Clifford McBride led a voyage into deep space, but the ship and crew were never heard from again."));
 

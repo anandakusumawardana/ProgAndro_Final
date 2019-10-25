@@ -12,7 +12,6 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,9 +25,7 @@ import static com.example.progandro_final.WiFiCheck.CHANNEL_1;
 import static com.example.progandro_final.WiFiCheck.CHANNEL_2;
 
 public class HomePageActivity extends AppCompatActivity {
-    private TextView textView;
     private View view;
-    private WifiManager wifiManager;
     private NotificationManagerCompat notificationManagerCompat;
     private static final String TAG = "Activities";
     @Override
@@ -43,8 +40,10 @@ public class HomePageActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.getTabAt(0);
         tabLayout.getTabAt(1);
+        tabLayout.getTabAt(2);
 
         notificationManagerCompat = NotificationManagerCompat.from(this);
+
     }
 
     //Function for WiFi Broadcast Receiver

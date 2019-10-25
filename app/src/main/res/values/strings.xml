@@ -17,4 +17,13 @@
     <string name="nama">Ananda Kusumawardana   71170153</string>
     <string name="android">Android</string>
     <string name="remember_me">Remember Me</string>
+    <string name="logout">Logout</string>
+    <string name="mahasiswa">mahasiswa</string>
+    <string name="add">Add</string>
+    <string name="nim">nim</string>
+    <string name="emailMahasiswa">email</string>
+    <string name="namaMahasiswa">nama</string>
+    <string name="nimMahasiswa">NIM</string>
+    <string name="tambah_mahasiswa">Tambah Mahasiswa</string>
+    <string name="add_students">addstudents</string>
 </resources>

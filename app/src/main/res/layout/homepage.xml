@@ -5,26 +5,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<!--    <FrameLayout-->
-<!--        android:id="@+id/FragmentHolder"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent">-->
-
-<!--        <Button-->
-<!--            android:id="@+id/abt"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="bottom|end"-->
-<!--            android:text="@string/about" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView2"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="627dp"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:text="" />-->
-
-<!--    </FrameLayout>-->
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

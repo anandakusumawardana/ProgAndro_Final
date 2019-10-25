@@ -7,14 +7,13 @@ import androidx.fragment.app.FragmentPagerAdapter;
 public class ViewAdapter extends FragmentPagerAdapter {
 
     private Fragment[] activities;
-    private String fr1 = "Home";
-    private String fr2 = "About";
 
     public ViewAdapter(FragmentManager fragmentManager){
         super(fragmentManager);
         activities = new Fragment[]{
                 new Homepage(),
-                new Fragment()
+                new About(),
+                new MahasiswaData()
         };
     }
 
