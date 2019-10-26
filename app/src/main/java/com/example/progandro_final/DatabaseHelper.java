@@ -10,7 +10,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "mahasiswa.db";
 
-
     public DatabaseHelper(Context context){
 
         super(context, DATABASE_NAME, null, 1);

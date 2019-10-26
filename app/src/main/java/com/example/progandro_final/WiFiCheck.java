@@ -28,6 +28,7 @@ public class WiFiCheck extends Application {
                     NotificationManager.IMPORTANCE_DEFAULT
             );
             NotificationManager manager =  getSystemService(NotificationManager.class);
+            assert manager != null;
             manager.createNotificationChannel(on);
             manager.createNotificationChannel(off);
         }
@@ -56,6 +57,7 @@ public class WiFiCheck extends Application {
                 off.setDescription("WiFi is Off");
 
                 NotificationManager manager = getSystemService(NotificationManager.class);
+                assert manager != null;
                 manager.createNotificationChannel(on);
                 manager.createNotificationChannel(off);
             }

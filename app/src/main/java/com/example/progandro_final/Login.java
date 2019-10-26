@@ -13,12 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Login extends AppCompatActivity {
     private EditText email,pwd;
-    Valid validation = new Valid();
-
     SharedPreferences sharedPreferences;
     public static final String MYPREFERENCES = "MyPrefs";
-    public static final String EMAIL = "emailKey";
-    public static final String PASS = "passKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +54,7 @@ public class Login extends AppCompatActivity {
             SharedPreferences.Editor e = sharedPreferences.edit();
             e.putString("email", "ananda@gmail.com");
             e.putString("password", "123");
-            e.commit();
+            e.apply();
 
             Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
 
