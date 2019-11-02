@@ -8,7 +8,7 @@ import com.example.progandro_final.Data.dataMahasiswa;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "mahasiswa.db";
+    public static final String DATABASE_NAME = "matakuliah.db";
 
     public DatabaseHelper(Context context){
 

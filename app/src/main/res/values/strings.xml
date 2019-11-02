@@ -26,4 +26,8 @@
     <string name="nimMahasiswa">NIM</string>
     <string name="tambah_mahasiswa">Tambah Mahasiswa</string>
     <string name="add_students">addstudents</string>
+    <string name="_3">3</string>
+    <string name="pemrograman_android">Pemrograman Android</string>
+    <string name="namadosen">Pak Dendy</string>
+    <string name="save">Save</string>
 </resources>

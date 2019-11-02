@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:orientation="vertical"
+    tools:context=".NewMatkul">
+
+
+    <EditText
+        android:id="@+id/tambahMatkul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mata Kuliah"
+        android:inputType="text" />
+    <EditText
+        android:id="@+id/tambahSks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="SKS"
+        android:inputType="text"/>
+    <EditText
+        android:id="@+id/tambahDosen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Dosen"
+        android:inputType="text"/>
+
+</LinearLayout>

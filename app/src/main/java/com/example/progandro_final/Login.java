@@ -11,10 +11,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Login extends AppCompatActivity {
     private EditText email,pwd;
     SharedPreferences sharedPreferences;
     public static final String MYPREFERENCES = "MyPrefs";
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +30,9 @@ public class Login extends AppCompatActivity {
         final Button login = findViewById(R.id.loginButton);
 
         sharedPreferences = getSharedPreferences(MYPREFERENCES, MODE_PRIVATE);
+
+        //Initialize Firebase Auth
+        mAuth = FirebaseAuth.getInstance();
 
         if (sharedPreferences.contains("email") && sharedPreferences.contains("password")){
             startActivity(new Intent(Login.this,HomePageActivity.class));

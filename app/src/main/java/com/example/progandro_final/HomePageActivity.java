@@ -41,6 +41,7 @@ public class HomePageActivity extends AppCompatActivity {
         tabLayout.getTabAt(0);
         tabLayout.getTabAt(1);
         tabLayout.getTabAt(2);
+        tabLayout.getTabAt(3);
 
         notificationManagerCompat = NotificationManagerCompat.from(this);
 
