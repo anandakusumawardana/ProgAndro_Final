@@ -22,6 +22,7 @@ public class MataKuliah extends AppCompatActivity {
     private CollectionReference collectionReference = firebaseFirestore.collection("MataKuliah");
 
     private NoteMatkulAdapter noteMatkulAdapter;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,8 +39,8 @@ public class MataKuliah extends AppCompatActivity {
         setUpRecyclerView();
     }
 
-    private void setUpRecyclerView(){
-        Query query = collectionReference.orderBy("priority",Query.Direction.DESCENDING);
+    private void setUpRecyclerView() {
+        Query query = collectionReference.orderBy("matakuliah", Query.Direction.DESCENDING);
 
         FirestoreRecyclerOptions<NoteMatkul> options = new FirestoreRecyclerOptions.Builder<NoteMatkul>()
                 .setQuery(query, NoteMatkul.class)
@@ -48,11 +49,12 @@ public class MataKuliah extends AppCompatActivity {
         noteMatkulAdapter = new NoteMatkulAdapter(options);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewMataKuliah);
-        recyclerView.setHasFixedSize(true);
+        //recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(noteMatkulAdapter);
+        noteMatkulAdapter.startListening();
 
-        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
                 return false;
@@ -64,15 +66,18 @@ public class MataKuliah extends AppCompatActivity {
             }
         }).attachToRecyclerView(recyclerView);
     }
+
     @Override
-    protected void onStart(){
+    protected void onStart() {
         super.onStart();
         noteMatkulAdapter.startListening();
     }
 
     @Override
-    protected void onStop(){
+    protected void onStop() {
         super.onStop();
-        noteMatkulAdapter.stopListening();
+        if (noteMatkulAdapter != null) {
+            noteMatkulAdapter.stopListening();
+        }
     }
 }

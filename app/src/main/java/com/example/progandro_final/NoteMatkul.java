@@ -1,16 +1,20 @@
 package com.example.progandro_final;
 
 public class NoteMatkul {
-    private String mataKuliah, dosen,sks;
+    private String matakuliah, dosen, sks;
 
-    public NoteMatkul(String mataKuliah, String dosen, String sks){
-        this.mataKuliah = mataKuliah;
+    public NoteMatkul(){
+        //empty constructor
+    }
+
+    public NoteMatkul(String matakuliah, String dosen, String sks){
+        this.matakuliah = matakuliah;
         this.dosen = dosen;
         this.sks = sks;
     }
 
     public String getMataKuliah() {
-        return mataKuliah;
+        return matakuliah;
     }
 
     public String getDosen() {
