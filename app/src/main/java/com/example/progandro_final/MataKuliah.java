@@ -3,6 +3,7 @@ package com.example.progandro_final;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -40,7 +42,7 @@ public class MataKuliah extends AppCompatActivity {
     }
 
     private void setUpRecyclerView() {
-        Query query = collectionReference.orderBy("matakuliah", Query.Direction.DESCENDING);
+        Query query = collectionReference.orderBy("matakuliah", Query.Direction.ASCENDING);
 
         FirestoreRecyclerOptions<NoteMatkul> options = new FirestoreRecyclerOptions.Builder<NoteMatkul>()
                 .setQuery(query, NoteMatkul.class)
@@ -49,10 +51,10 @@ public class MataKuliah extends AppCompatActivity {
         noteMatkulAdapter = new NoteMatkulAdapter(options);
 
         RecyclerView recyclerView = findViewById(R.id.recyclerViewMataKuliah);
-        //recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(noteMatkulAdapter);
-        noteMatkulAdapter.startListening();
+        noteMatkulAdapter.notifyDataSetChanged();
 
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
             @Override
@@ -65,6 +67,18 @@ public class MataKuliah extends AppCompatActivity {
                 noteMatkulAdapter.deleteItem(viewHolder.getAdapterPosition());
             }
         }).attachToRecyclerView(recyclerView);
+
+        //subject firestore info on click interface
+        noteMatkulAdapter.setOnClickItemListener(new NoteMatkulAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(DocumentSnapshot documentSnapshot, int position) {
+                NoteMatkul noteMatkul = documentSnapshot.toObject(NoteMatkul.class);
+                String matakuliah = documentSnapshot.getId();
+                String path = documentSnapshot.getReference().getPath();
+                Toast.makeText(MataKuliah.this, "Position " + position + " Mata Kuliah : " + matakuliah, Toast.LENGTH_SHORT).show();
+
+            }
+        });
     }
 
     @Override

@@ -21,6 +21,9 @@ public class NewMatkul extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_matkul);
 
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_close);
+        setTitle("Add Note");
+
         editTextMatkul = findViewById(R.id.tambahMatkul);
         editTextSks = findViewById(R.id.tambahSks);
         editTextDosen = findViewById(R.id.tambahDosen);
