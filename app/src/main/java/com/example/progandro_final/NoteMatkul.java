@@ -1,5 +1,7 @@
 package com.example.progandro_final;
 
+import com.google.firebase.firestore.PropertyName;
+
 public class NoteMatkul {
     private String matakuliah, dosen, sks;
 
@@ -12,15 +14,15 @@ public class NoteMatkul {
         this.dosen = dosen;
         this.sks = sks;
     }
-
+    @PropertyName("matakuliah")
     public String getMataKuliah() {
         return matakuliah;
     }
-
+    @PropertyName("dosen")
     public String getDosen() {
         return dosen;
     }
-
+    @PropertyName("sks")
     public String getSks() {
         return sks;
     }
