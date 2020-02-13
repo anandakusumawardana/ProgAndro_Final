@@ -37,7 +37,6 @@ public class MataKuliah extends AppCompatActivity {
                 startActivity(new Intent(MataKuliah.this, NewMatkul.class));
             }
         });
-
         setUpRecyclerView();
     }
 

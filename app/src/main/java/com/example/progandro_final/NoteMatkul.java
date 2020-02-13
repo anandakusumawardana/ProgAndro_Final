@@ -13,6 +13,7 @@ public class NoteMatkul {
         this.matakuliah = matakuliah;
         this.dosen = dosen;
         this.sks = sks;
+        System.out.println("tes");
     }
     @PropertyName("matakuliah")
     public String getMataKuliah() {
